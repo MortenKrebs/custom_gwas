@@ -41,13 +41,13 @@ def main():
     args = parser.parse_args()
 
     try:
-        pheno_df = pd.read_csv(args.pheno, sep = "\s+")
+        pheno_df = pd.read_csv(args.pheno, sep = "\s+",dtype={'IID': str})
     except:
         print("ERROR: When opening PHENOTYPE file: ", sys.exc_info()[0], "occurred!")
         sys.exit()
 
     try:
-        covar_df = pd.read_csv(args.covar, sep = "\s+")        
+        covar_df = pd.read_csv(args.covar, sep = "\s+",dtype={'IID': str})        
     except:
         print("ERROR: When opening COVARIATE file: ", sys.exc_info()[0], "occurred!")
         sys.exit()
